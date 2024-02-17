@@ -70,7 +70,5 @@ The shipping_datamart view based on existing tables for analytics that includes 
 
 ---
 
-Text
-
 
  
