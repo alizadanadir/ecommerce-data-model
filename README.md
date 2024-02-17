@@ -3,6 +3,10 @@ Creating a data model for online shopping platform
 
 ---
 
+![image](https://github.com/alizadanadir/ecommerce-data-model/assets/81812348/3e32f50c-e5db-4946-953a-17310a071b12)
+
+---
+
 The goal of the project is to perform migration of the transactional log data into separate logical tables, and then build a data model based on them. This will help optimize the load on the storage and allow analysts, tasked with analyzing business efficiency and profitability, to answer specific questions about vendor tariffs, delivery costs to different countries, and the number of delivered orders in the last week. Searching for this data in the original delivery logs table would be suboptimal, leading to complex queries and potential errors.
 
 An order in an online store consists of purchased items and their quantities. Customers are accustomed to receiving their orders at once, so each order from the set of items forms a single delivery entity.
@@ -13,11 +17,14 @@ However, currently, this data is stored in a single table, **shipping** (_attach
 
 ---
 
-![image](https://github.com/alizadanadir/ecommerce-data-model/assets/81812348/3e32f50c-e5db-4946-953a-17310a071b12)
-
+Project consists of the following files:
+* ```creating_tables.sql``` — scripts to create normalized tables from the log table.
+* ```inserting_data.sql``` — scripts to migrate data.
+* ```datamart.sql``` — script of the view with the resulting datamart.
+  
 ---
 
-Given the log **shipping** table it represents a sequence of delivery actions, listed below:
+Given the log **shipping.csv** file it represents a sequence of delivery actions, listed below:
 
 + ```shippingid```: Unique identifier for the delivery.
 + ```saleid```: Unique identifier for the order. Multiple shippingid entries may be associated with one order, representing different delivery logs.
